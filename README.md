@@ -1,6 +1,9 @@
 # 世界线变动率探测仪 DivergenceMeter
 
-[设计参考](https://zhuanlan.zhihu.com/p/37329082)
+参考：
+1. [想做个辉光管时钟 0 - 想法](https://zhuanlan.zhihu.com/p/37329082)
+2. [世界线变动率探测仪制作（一）](https://zhuanlan.zhihu.com/p/28265652)
+3. [如何自己制作一个 divergense meter（辉光管时钟）？](https://www.zhihu.com/question/34564116)
 
 # 供电
 5v type-c
