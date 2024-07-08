@@ -14,7 +14,7 @@ auto NixieTube::close() -> void {
 }
 
 auto NixieTube::show(NixieTubeEnum (&enums)[8]) -> void {
-  memset(send_buf, 0, 8);
+  memset(send_buf, 0, buf_size);
   setL1(enums[0]);
   setL2(enums[1]);
   setL3(enums[2]);

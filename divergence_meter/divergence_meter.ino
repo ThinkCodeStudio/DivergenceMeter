@@ -80,31 +80,74 @@ void setup() {
 }
 
 void loop() {
-  union u8buf touch;
-  touch.u8 = tm6108.read();
-  LOGF("%d\n", touch.u8);
+  // union u8buf touch;
+  // touch.u8 = tm6108.read();
+  // LOGF("%d\n", touch.u8);
   NixieTubeEnum sendState[8] = { NixieTubeEnum_ZERO };
-  if (touch.buf.d0) {
-    setNixieTubeEnum(sendState, NixieTubeEnum_ZERO, 8);
-  } else if (touch.buf.d1) {
-    setNixieTubeEnum(sendState, NixieTubeEnum_ONE, 8);
-  } else if (touch.buf.d2) {
-    setNixieTubeEnum(sendState, NixieTubeEnum_TWO, 8);
-  } else if (touch.buf.d3) {
-    setNixieTubeEnum(sendState, NixieTubeEnum_THREE, 8);
-  } else if (touch.buf.d4) {
-    setNixieTubeEnum(sendState, NixieTubeEnum_FOUR, 8);
-  } else if (touch.buf.d5) {
-    setNixieTubeEnum(sendState, NixieTubeEnum_FIVE, 8);
-  } else if (touch.buf.d6) {
-    setNixieTubeEnum(sendState, NixieTubeEnum_SIX, 8);
-  } else if (touch.buf.d7) {
-    setNixieTubeEnum(sendState, NixieTubeEnum_SEVEN, 8);
-  } else {
-    setNixieTubeEnum(sendState, NixieTubeEnum_NONE, 8);
+  // if (touch.buf.d0) {
+  //   setNixieTubeEnum(sendState, NixieTubeEnum_ZERO, 8);
+  // } else if (touch.buf.d1) {
+  //   setNixieTubeEnum(sendState, NixieTubeEnum_ONE, 8);
+  // } else if (touch.buf.d2) {
+  //   setNixieTubeEnum(sendState, NixieTubeEnum_TWO, 8);
+  // } else if (touch.buf.d3) {
+  //   setNixieTubeEnum(sendState, NixieTubeEnum_THREE, 8);
+  // } else if (touch.buf.d4) {
+  //   setNixieTubeEnum(sendState, NixieTubeEnum_FOUR, 8);
+  // } else if (touch.buf.d5) {
+  //   setNixieTubeEnum(sendState, NixieTubeEnum_FIVE, 8);
+  // } else if (touch.buf.d6) {
+  //   setNixieTubeEnum(sendState, NixieTubeEnum_SIX, 8);
+  // } else if (touch.buf.d7) {
+  //   setNixieTubeEnum(sendState, NixieTubeEnum_SEVEN, 8);
+  // } else {
+  //   setNixieTubeEnum(sendState, NixieTubeEnum_NONE, 8);
+  // }
+
+  static int count = 0;
+
+  switch(count){
+    case 0:
+      setNixieTubeEnum(sendState, NixieTubeEnum_ZERO, 8);
+      break;
+    case 1:
+      setNixieTubeEnum(sendState, NixieTubeEnum_ONE, 8);
+      break;
+    case 2:
+      setNixieTubeEnum(sendState, NixieTubeEnum_TWO, 8);
+      break;
+    case 3:
+      setNixieTubeEnum(sendState, NixieTubeEnum_THREE, 8);
+      break;
+    case 4:
+      setNixieTubeEnum(sendState, NixieTubeEnum_FOUR, 8);
+      break;
+    case 5:
+      setNixieTubeEnum(sendState, NixieTubeEnum_FIVE, 8);
+      break;
+    case 6:
+      setNixieTubeEnum(sendState, NixieTubeEnum_SIX, 8);
+      break;
+    case 7:
+      setNixieTubeEnum(sendState, NixieTubeEnum_SEVEN, 8);
+      break;
+    case 8:
+      setNixieTubeEnum(sendState, NixieTubeEnum_EIGHT, 8);
+      break;
+    case 9:
+      setNixieTubeEnum(sendState, NixieTubeEnum_NINE, 8);
+      break;
+    case 10:
+      setNixieTubeEnum(sendState, NixieTubeEnum_LTDOT, 8);
+      break;
+    case 12:
+      setNixieTubeEnum(sendState, NixieTubeEnum_RTDOT, 8);
+      break;
   }
 
   nixie.show(sendState);
+  count++;
+  count%=13;
   delay(100);
 }
 
